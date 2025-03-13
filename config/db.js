@@ -13,3 +13,5 @@ const connectDb = async () => {
     console.log("Xatolik yuz berdi", error);
   }
 };
+
+module.exports = connectDb;
