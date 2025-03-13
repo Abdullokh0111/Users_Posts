@@ -1,5 +1,9 @@
 const app = require("./middlewares/app");
-const mongodb = require("mongoose");
+const connectDb = require("./config/db");
 
-mongodb();
 require("dotenv").config();
+
+connectDb();
+app.listen(process.env.PORT, () =>
+  console.log(`Server is running on port ${process.env.PORT}`)
+);
