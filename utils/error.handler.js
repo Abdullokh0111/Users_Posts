@@ -1,12 +1,11 @@
 const response = require("./response");
 
-let errorHandler = (funk) => {
-  return (req, res, next) => {
-    funk(req, res, next).catch((err) => {
-      console.log(err, "yerror");
-      response(res, 404, "Xatolik sodir bo'ldi: ");
-    });
-  };
+const errorHandler = (handler) => async (req, res, next) => {
+  try {
+    await handler(req, res, next);
+  } catch (error) {
+    response(res, 500, error.message);
+  }
 };
 
 module.exports = errorHandler;

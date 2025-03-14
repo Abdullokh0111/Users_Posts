@@ -1,5 +1,4 @@
-const { getUserById } = require("../controllers/user.controller");
-const models = require("../models/models");
+const models = require("../models/users.model");
 
 const getAllUsers = async () => {
   try {
@@ -19,4 +18,13 @@ const getUserById = async (id) => {
   }
 };
 
-module.exports = { getAllUsers, getUserById };
+const addUser = async (user) => {
+  try {
+    const result = await models.create(user);
+    return result;
+  } catch (error) {
+    throw error;
+  }
+};
+
+module.exports = { getAllUsers, getUserById, addUser };

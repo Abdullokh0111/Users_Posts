@@ -1,7 +1,5 @@
-let response = (res, status, data) => {
-  if (status >= 200 && status <= 205) {
-    res.status(status).json({ status: "Successed", data });
-  } else {
-    res.status(status).json({ status: "Failed", message: data });
-  }
+const response = (res, statusCode, message) => {
+  res.status(statusCode).json({ message: message, statusCode: statusCode });
 };
+
+module.exports = response;

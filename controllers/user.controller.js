@@ -13,7 +13,7 @@ const getUserById = handler(async (req, res, next) => {
 
 const addUser = handler(async (req, res, next) => {
   const result = await service.addUser(req.body);
-  res.status(201).json({ title: "Foydalanuvchi qo'shildi!" }, result);
+  res.status(201).json({ title: "Foydalanuvchi qo'shildi!" , result});
 });
 
 module.exports = { getAllUsers, getUserById, addUser };
